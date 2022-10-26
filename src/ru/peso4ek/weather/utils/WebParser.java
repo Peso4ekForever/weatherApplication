@@ -8,16 +8,38 @@ import ru.peso4ek.weather.Day;
 import ru.peso4ek.weather.Weather;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class WebParser {
 
+    /**
+     * Возвращает список городов
+     */
+    public HashMap<String, String> getCities() throws IOException {
+        //Получение документа HTML
+        Document htmlPage = Jsoup.connect("https://pogoda.mail.ru/country/russia/")
+                .userAgent("Chrome/4.0.249.0 Safari/532.5")
+                .referrer("http://www.yandex.com")
+                .get();
+
+        Elements htmlCities = htmlPage.select(".city-list__val-text [href]");
+
+        HashMap<String, String> cities = new HashMap<>();
+        for (Element element : htmlCities) {
+            cities.put(element.attributes().get("href"), element.text());
+        }
+
+        return cities;
+    }
 
     /**
      * Возвращает экземпляр погоды на конкретный парс (замер)
      */
     public Weather ParseWeather(String city) throws IOException {
         //Получение документа HTML
-        Document htmlPage = Jsoup.connect("https://pogoda.mail.ru/prognoz/vladimir/")
+        Document htmlPage = Jsoup.connect("https://pogoda.mail.ru/" + city)
                 .userAgent("Chrome/4.0.249.0 Safari/532.5")
                 .referrer("http://www.yandex.com")
                 .get();
@@ -31,7 +53,7 @@ public class WebParser {
         //Добавление текущего дня (первым в листе идет текущий день)
         String[] currentDayData = htmlCurrentDayWeather.text().split(" ");
         Day currentDay = new Day("Сегодня", currentDayData[0],
-                currentDayData[4]  + " " + currentDayData[5],
+                currentDayData[4] + " " + currentDayData[5],
                 currentDayData[6] + " " + currentDayData[7], currentDayData[11],
                 currentDayData[14] + " " + currentDayData[15], currentDayData[18], currentDayData[27]);
         currentWeather.insertDay(currentDay);
