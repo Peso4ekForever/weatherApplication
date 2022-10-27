@@ -1,0 +1,21 @@
+.combo-box .cell{
+    -fx-text-fill: white;
+    -fx-font: 15px "Bahnschrift";
+}
+.combo-box .list-view .list-cell{
+    -fx-background-color:  rgb(0, 0, 0);
+}
+
+.sheet {
+    -fx-border-radius: 15px;
+}
+
+.font-days-date {
+    -fx-text-fill: white;
+    -fx-font: 20px "Bahnschrift";
+}
+
+.font-default {
+    -fx-text-fill: white;
+    -fx-font: 12px "Bahnschrift";
+}
