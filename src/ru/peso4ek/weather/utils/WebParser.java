@@ -8,9 +8,7 @@ import ru.peso4ek.weather.Day;
 import ru.peso4ek.weather.Weather;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class WebParser {
 
@@ -28,7 +26,7 @@ public class WebParser {
 
         HashMap<String, String> cities = new HashMap<>();
         for (Element element : htmlCities) {
-            cities.put(element.attributes().get("href"), element.text());
+            cities.put(element.text(), element.attributes().get("href"));
         }
 
         return cities;
