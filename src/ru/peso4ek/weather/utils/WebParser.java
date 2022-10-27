@@ -11,11 +11,12 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class WebParser {
+    private static HashMap<String, String> cities = new HashMap<>();
 
     /**
      * Возвращает список городов
      */
-    public HashMap<String, String> getCities() throws IOException {
+    public static HashMap<String, String> getCities() throws IOException {
         //Получение документа HTML
         Document htmlPage = Jsoup.connect("https://pogoda.mail.ru/country/russia/")
                 .userAgent("Chrome/4.0.249.0 Safari/532.5")
@@ -24,7 +25,6 @@ public class WebParser {
 
         Elements htmlCities = htmlPage.select(".city-list__val-text [href]");
 
-        HashMap<String, String> cities = new HashMap<>();
         for (Element element : htmlCities) {
             cities.put(element.text(), element.attributes().get("href"));
         }
@@ -75,5 +75,9 @@ public class WebParser {
         }
 
         return currentWeather;
+    }
+
+    public static String getCityUrlByName(String name){
+        return cities.get(name);
     }
 }

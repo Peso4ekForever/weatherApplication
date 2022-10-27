@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main extends Application {
-
     public static void main(String[] args) throws IOException {
         launch(args);
     }
@@ -31,10 +30,10 @@ public class Main extends Application {
         mainPane.setStyle("-fx-background-image: url('" + String.valueOf(this.getClass().getResource("/weatherImageBackground.jpg")) + "')");
 
         WebParser webParser = new WebParser();
-        List<String> list = new ArrayList<String>(webParser.getCities().keySet());
+        List<String> citiesList = new ArrayList<String>(webParser.getCities().keySet());
 
         ComboBox comboBoxChangeCity = (ComboBox) fxmlLoader.getNamespace().get("comboBoxChangeCity");
-        comboBoxChangeCity.getItems().addAll(list);
+        comboBoxChangeCity.getItems().addAll(citiesList);
 
         primaryStage.setTitle("Погода");
         primaryStage.setResizable(false);
@@ -46,7 +45,7 @@ public class Main extends Application {
                     public void handle(ActionEvent e) {
                         WebParser currentCityParser = new WebParser();
                         try {
-                            Weather weather = currentCityParser.ParseWeather((String) comboBoxChangeCity.getValue());
+                            Weather weather = currentCityParser.ParseWeather(WebParser.getCityUrlByName((String) comboBoxChangeCity.getValue()));
                         } catch (IOException ex) {
                             throw new RuntimeException(ex);
                         }
