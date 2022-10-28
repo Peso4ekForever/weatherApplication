@@ -36,6 +36,9 @@ public class WebParser {
      * Возвращает экземпляр погоды на конкретный парс (замер)
      */
     public Weather ParseWeather(String city) throws IOException {
+        //Создаем погоду
+        Weather currentWeather = new Weather();
+
         //Получение документа HTML
         Document htmlPage = Jsoup.connect("https://pogoda.mail.ru/" + city)
                 .userAgent("Chrome/4.0.249.0 Safari/532.5")
@@ -43,17 +46,37 @@ public class WebParser {
                 .get();
 
         Elements htmlWeatherPane = htmlPage.select(".day_index");
-        Elements htmlCurrentDayWeather = htmlPage.select(".information__content__wrapper");
+//        Elements htmlCurrentDayWeather = htmlPage.select(".information__content__wrapper");
 
-        //Создаем погоду
-        Weather currentWeather = new Weather();
+        //Получение документа HTML
+        Document htmlPage24hours = Jsoup.connect("https://pogoda.mail.ru" + city + "24hours/")
+                .userAgent("Chrome/4.0.249.0 Safari/532.5")
+                .referrer("http://www.yandex.com")
+                .get();
+
+        Elements htmlWeather24Hours = htmlPage24hours.select(".p-forecast__current");
+        String curDayTemperatureMax = htmlWeather24Hours.select(".p-forecast__temperature-value").text();
+        Elements curDayData = htmlWeather24Hours.select(".p-forecast__data");
+        String curDayTemperatureDescription = htmlWeather24Hours.select(".p-forecast__description").text();
+
+        String curDayTemperatureMin = curDayData.get(0).text();
+        String curDayPressure = curDayData.get(1).text();
+        String curDayWind = curDayData.get(2).text();
+        String curDayWet = curDayData.get(3).text();
+
+        String curDayUV = "0";
+
+        try {
+            curDayUV = curDayData.get(4).text();
+        } catch (Exception ex) {
+            System.out.println("UV data does not exist!");
+        }
 
         //Добавление текущего дня (первым в листе идет текущий день)
-        String[] currentDayData = htmlCurrentDayWeather.text().split(" ");
-        Day currentDay = new Day("Сегодня", currentDayData[0],
-                currentDayData[4] + " " + currentDayData[5],
-                currentDayData[6] + " " + currentDayData[7], currentDayData[11],
-                currentDayData[14] + " " + currentDayData[15], currentDayData[18], currentDayData[27]);
+        Day currentDay = new Day("Сегодня", curDayTemperatureMax + " " + curDayTemperatureMin,
+                curDayTemperatureDescription,
+                curDayPressure, curDayWet,
+                curDayWind, curDayUV, " ");
         currentWeather.insertDay(currentDay);
 
         //Заполнение дней начиная с "Завтра"
@@ -77,7 +100,7 @@ public class WebParser {
         return currentWeather;
     }
 
-    public static String getCityUrlByName(String name){
+    public static String getCityUrlByName(String name) {
         return cities.get(name);
     }
 }

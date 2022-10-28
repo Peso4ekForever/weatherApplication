@@ -80,15 +80,15 @@ public class Main extends Application {
         pressureLabel.setText(day.getPressure() + " рт.ст.");
 
         Label wetLabel = (Label) fxmlLoader.getNamespace().get("wet" + index);
-        wetLabel.setText("Влажность " + day.getWet());
+        wetLabel.setText("Влажность: " + day.getWet());
 
         Label windLabel = (Label) fxmlLoader.getNamespace().get("wind" + index);
-        windLabel.setText("Ветер " + day.getWind());
+        windLabel.setText("Ветер: " + day.getWind());
 
         Label uvIndexLabel = (Label) fxmlLoader.getNamespace().get("uvIndex" + index);
-        uvIndexLabel.setText("Индекс уф " + day.getUvIndex());
+        uvIndexLabel.setText("Индекс UV: " + day.getUvIndex());
 
         Label downfallChanceLabel = (Label) fxmlLoader.getNamespace().get("downfallChance" + index);
-        downfallChanceLabel.setText(day.getDownfallChance());
+        downfallChanceLabel.setText("Вер. осадков: " + day.getDownfallChance());
     }
 }
