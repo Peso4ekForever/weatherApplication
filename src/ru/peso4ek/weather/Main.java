@@ -67,7 +67,6 @@ public class Main extends Application {
                     }
                 };
         comboBoxChangeCity.setOnAction(event);
-        comboBoxChangeCity.getSelectionModel().select(103);
     }
 
     public void fillScene(int index, Weather weather) {
