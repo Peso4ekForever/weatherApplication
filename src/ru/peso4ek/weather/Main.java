@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -26,7 +28,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         //FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/weatherApplication.fxml"));
-        Scene mainScene = new Scene(fxmlLoader.load(), 1260, 640);
+        Scene mainScene = new Scene(fxmlLoader.load(), 1260, 750);
         Pane mainPane = (Pane) fxmlLoader.getNamespace().get("applicationMainPane");
         mainPane.setStyle("-fx-background-image: url('" + String.valueOf(this.getClass().getResource("/weatherImageBackground.jpg")) + "')");
 
@@ -35,6 +37,9 @@ public class Main extends Application {
 
         ComboBox comboBoxChangeCity = (ComboBox) fxmlLoader.getNamespace().get("comboBoxChangeCity");
         comboBoxChangeCity.getItems().addAll(citiesList);
+        for (int i = 0; i < 10; i++){
+            this.setImages(i);
+        }
 
         primaryStage.setTitle("Погода");
         primaryStage.setResizable(false);
@@ -48,7 +53,7 @@ public class Main extends Application {
                         try {
                             Weather weather = currentCityParser.ParseWeather(WebParser.getCityUrlByName((String) comboBoxChangeCity.getValue()));
 
-                            for (int i = 1; i < 10; i++){
+                            for (int i = 0; i < 10; i++){
                                 fillScene(i,weather);
                             }
 
@@ -77,18 +82,35 @@ public class Main extends Application {
         descriptionLabel.setText(day.getDescription());
 
         Label pressureLabel = (Label) fxmlLoader.getNamespace().get("pressure" + index);
-        pressureLabel.setText(day.getPressure() + " рт.ст.");
+        pressureLabel.setText(day.getPressure());
 
         Label wetLabel = (Label) fxmlLoader.getNamespace().get("wet" + index);
-        wetLabel.setText("Влажность: " + day.getWet());
+        wetLabel.setText(day.getWet());
 
         Label windLabel = (Label) fxmlLoader.getNamespace().get("wind" + index);
-        windLabel.setText("Ветер: " + day.getWind());
+        windLabel.setText(day.getWind());
 
         Label uvIndexLabel = (Label) fxmlLoader.getNamespace().get("uvIndex" + index);
-        uvIndexLabel.setText("Индекс UV: " + day.getUvIndex());
+        uvIndexLabel.setText(day.getUvIndex());
 
         Label downfallChanceLabel = (Label) fxmlLoader.getNamespace().get("downfallChance" + index);
-        downfallChanceLabel.setText("Вер. осадков: " + day.getDownfallChance());
+        downfallChanceLabel.setText(day.getDownfallChance());
+    }
+
+    public void setImages(int index){
+        ImageView pressureImage = (ImageView) fxmlLoader.getNamespace().get("pressureImage" + index);
+        pressureImage.setImage(new Image(String.valueOf(this.getClass().getResource("/pressureImage.png"))));
+
+        ImageView wetImage = (ImageView) fxmlLoader.getNamespace().get("wetImage" + index);
+        wetImage.setImage(new Image(String.valueOf(this.getClass().getResource("/wetImage.png"))));
+
+        ImageView windImage = (ImageView) fxmlLoader.getNamespace().get("windImage" + index);
+        windImage.setImage(new Image(String.valueOf(this.getClass().getResource("/windImage.png"))));
+
+        ImageView uvIndexImage = (ImageView) fxmlLoader.getNamespace().get("uvIndexImage" + index);
+        uvIndexImage.setImage(new Image(String.valueOf(this.getClass().getResource("/uvIndexImage.png"))));
+
+        ImageView downfallImage = (ImageView) fxmlLoader.getNamespace().get("downfallImage" + index);
+        downfallImage.setImage(new Image(String.valueOf(this.getClass().getResource("/downfallChanceImage.png"))));
     }
 }

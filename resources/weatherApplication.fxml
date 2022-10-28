@@ -7,10 +7,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<Pane fx:id="applicationMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.peso4ek.weather.AppController">
+<Pane fx:id="applicationMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.peso4ek.weather.AppController">
    <children>
-      <VBox fx:id="mainVBox" prefHeight="640.0" prefWidth="1260.0" spacing="35.0">
+      <VBox fx:id="mainVBox" prefHeight="750.0" prefWidth="1260.0" spacing="35.0">
          <children>
             <ComboBox fx:id="comboBoxChangeCity" prefHeight="29.0" prefWidth="176.0" promptText="Выберите город" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-text-fill: white;" stylesheets="@resources/style.css">
                <VBox.margin>
@@ -19,26 +20,58 @@
             <VBox alignment="CENTER" prefHeight="207.0" prefWidth="1194.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                <children>
                   <Label fx:id="selectedCity" alignment="CENTER" contentDisplay="CENTER" styleClass="font-default" stylesheets="@resources/style.css" text="Выбранный город" textAlignment="CENTER" textFill="WHITE" />
-                  <Label styleClass="font-days-date" stylesheets="@resources/style.css" text="Сегодня" textFill="WHITE" />
-                  <HBox alignment="CENTER" prefHeight="187.0" prefWidth="800.0" spacing="150.0">
+                  <Label fx:id="date0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Сегодня" textFill="WHITE" />
+                  <HBox alignment="CENTER" prefHeight="187.0" prefWidth="800.0" spacing="250.0">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                              <HBox alignment="CENTER" prefHeight="120.0" prefWidth="350.0" spacing="70.0">
                                  <children>
-                                    <ImageView fitHeight="152.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label prefHeight="17.0" prefWidth="50.0" text="Label" textFill="WHITE" />
+                                    <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="description0" alignment="CENTER" contentDisplay="CENTER" prefHeight="120.0" prefWidth="250.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Label" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font></Label>
                                  </children>
                               </HBox>
-                              <Label alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" />
+                              <Label fx:id="temperature0" alignment="CENTER" contentDisplay="CENTER" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font></Label>
                            </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="35.0">
+                        <VBox prefHeight="315.0" prefWidth="210.0" spacing="8.0">
                            <children>
-                              <Label fx:id="pressure0" text="Label" textFill="WHITE" />
-                              <Label fx:id="wet0" text="Label" textFill="WHITE" />
-                              <Label fx:id="wind0" text="Label" textFill="WHITE" />
-                              <Label text="Label" textFill="WHITE" />
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fx:id="pressureImage0" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="pressure0" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fx:id="wetImage0" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="wet0" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fx:id="windImage0" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="wind0" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fx:id="uvIndexImage0" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="uvIndex0" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fx:id="downfallImage0" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+                                    <Label fx:id="downfallChance0" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" visible="false" />
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                      </children>
@@ -53,118 +86,406 @@
                   <VBox fx:id="vBoxtomorow" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="temperature1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Температура" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="description1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="pressure1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wet1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wind1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="uvIndex1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="downfallChance1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="temperature1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="pressureImage1" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="pressure1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="wetImage1" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wet1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="windImage1" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wind1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="uvIndexImage1" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="uvIndex1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="downfallImage1" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="downfallChance1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="vBoxtomorow1" alignment="CENTER" prefHeight="301.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
+                  <VBox fx:id="vBoxtomorow1" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="temperature2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Температура" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="description2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="pressure2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wet2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wind2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="uvIndex2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="downfallChance2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="temperature2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="pressureImage2" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="pressure2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="wetImage2" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wet2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="windImage2" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wind2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="uvIndexImage2" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="uvIndex2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="downfallImage2" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="downfallChance2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="vBoxtomorow2" alignment="CENTER" prefHeight="301.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
+                  <VBox fx:id="vBoxtomorow2" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="temperature3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Температура" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="description3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="pressure3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wet3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wind3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="uvIndex3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="downfallChance3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="temperature3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="pressureImage3" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="pressure3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="wetImage3" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wet3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="windImage3" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wind3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="uvIndexImage3" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="uvIndex3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="downfallImage3" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="downfallChance3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="vBoxtomorow3" alignment="CENTER" prefHeight="301.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
+                  <VBox fx:id="vBoxtomorow3" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="temperature4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Температура" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="description4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="pressure4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wet4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wind4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="uvIndex4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="downfallChance4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="temperature4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="pressureImage4" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="pressure4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="wetImage4" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wet4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="windImage4" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wind4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="uvIndexImage4" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="uvIndex4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="downfallImage4" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="downfallChance4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="vBoxtomorow4" alignment="CENTER" prefHeight="301.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
+                  <VBox fx:id="vBoxtomorow4" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="temperature5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Температура" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="description5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="pressure5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wet5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wind5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="uvIndex5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="downfallChance5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="temperature5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="pressureImage5" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="pressure5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="wetImage5" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wet5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="windImage5" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wind5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="uvIndexImage5" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="uvIndex5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="downfallImage5" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="downfallChance5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="vBoxtomorow5" alignment="CENTER" prefHeight="301.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
+                  <VBox fx:id="vBoxtomorow5" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="temperature6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Температура" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="description6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="pressure6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wet6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wind6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="uvIndex6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="downfallChance6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="temperature6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="pressureImage6" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="pressure6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="wetImage6" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wet6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="windImage6" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wind6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="uvIndexImage6" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="uvIndex6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="downfallImage6" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="downfallChance6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="vBoxtomorow6" alignment="CENTER" prefHeight="301.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
+                  <VBox fx:id="vBoxtomorow6" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="temperature7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Температура" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="description7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="pressure7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wet7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wind7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="uvIndex7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="downfallChance7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="temperature7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="pressureImage7" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="pressure7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="wetImage7" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wet7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="windImage7" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wind7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="uvIndexImage7" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="uvIndex7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="downfallImage7" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="downfallChance7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="vBoxtomorow7" alignment="CENTER" prefHeight="301.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
+                  <VBox fx:id="vBoxtomorow7" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="temperature8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Температура" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="description8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="pressure8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wet8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wind8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="uvIndex8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="downfallChance8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="temperature8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="pressureImage8" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="pressure8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="wetImage8" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wet8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="windImage8" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wind8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="uvIndexImage8" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="uvIndex8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="downfallImage8" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="downfallChance8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="vBoxtomorow8" alignment="CENTER" prefHeight="301.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
+                  <VBox fx:id="vBoxtomorow8" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="temperature9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Температура" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="description9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="pressure9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wet9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="wind9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="uvIndex9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
-                        <Label fx:id="downfallChance9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="temperature9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="description9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Описание погоды" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="pressureImage9" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="pressure9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Давление" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="wetImage9" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wet9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Влажность" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="windImage9" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="wind9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Ветер" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="uvIndexImage9" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="uvIndex9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="УФ индекс" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="downfallImage9" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="downfallChance9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-default" stylesheets="@resources/style.css" text="Осадки" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children>
