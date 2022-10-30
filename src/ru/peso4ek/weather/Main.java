@@ -4,14 +4,12 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import ru.peso4ek.weather.utils.WebParser;
 
@@ -29,11 +27,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         //FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/weatherApplication.fxml"));
         Scene mainScene = new Scene(fxmlLoader.load(), 1260, 750);
-        Pane mainPane = (Pane) fxmlLoader.getNamespace().get("applicationMainPane");
-        mainPane.setStyle("-fx-background-image: url('" + String.valueOf(this.getClass().getResource("/weatherImageBackground.jpg")) + "')");
 
         WebParser webParser = new WebParser();
-        List<String> citiesList = new ArrayList<String>(webParser.getCities().keySet());
+        List<String> citiesList = new ArrayList<String>(WebParser.getCities().keySet());
 
         ComboBox comboBoxChangeCity = (ComboBox) fxmlLoader.getNamespace().get("comboBoxChangeCity");
         comboBoxChangeCity.getItems().addAll(citiesList);
@@ -67,10 +63,12 @@ public class Main extends Application {
                     }
                 };
         comboBoxChangeCity.setOnAction(event);
+        comboBoxChangeCity.getSelectionModel().select(103);
     }
 
     public void fillScene(int index, Weather weather) {
         Day day = weather.getDay(index);
+        setMainImages(weather, index);
 
         Label dateLabel = (Label) fxmlLoader.getNamespace().get("date" + index);
         dateLabel.setText(day.getDate());
@@ -80,6 +78,9 @@ public class Main extends Application {
 
         Label descriptionLabel = (Label) fxmlLoader.getNamespace().get("description" + index);
         descriptionLabel.setText(day.getDescription());
+        if (index != 0) {
+            setWeatherImages(weather, index);
+        }
 
         Label pressureLabel = (Label) fxmlLoader.getNamespace().get("pressure" + index);
         pressureLabel.setText(day.getPressure());
@@ -112,5 +113,67 @@ public class Main extends Application {
 
         ImageView downfallImage = (ImageView) fxmlLoader.getNamespace().get("downfallImage" + index);
         downfallImage.setImage(new Image(String.valueOf(this.getClass().getResource("/downfallChanceImage.png"))));
+    }
+
+    public void setMainImages(Weather weather, int index){
+        Pane mainPane = (Pane) fxmlLoader.getNamespace().get("applicationMainPane");
+        ImageView weatherImage = (ImageView) fxmlLoader.getNamespace().get("weatherImage" + index);
+        String currentDayDescription = weather.getDay(index).getDescription();
+        String[] description = currentDayDescription.split(" ");
+        if (index == 0){
+            for (String element: description) {
+                switch (element) {
+                    case "ясно":
+                        mainPane.setStyle("-fx-background-image: url('" + this.getClass().getResource("/clearBackground.jpg") + "')");
+                        weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/sunImage.png"))));
+                        break;
+                    case "малооблачно":
+                    case "облачно":
+                    case "облачность":
+                        mainPane.setStyle("-fx-background-image: url('" + this.getClass().getResource("/cloudyBackground.jpg") + "')");
+                        weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/cloudImage.png"))));
+                        break;
+                    case "снег":
+                        mainPane.setStyle("-fx-background-image: url('" + this.getClass().getResource("/snowBackground.jpg") + "')");
+                        weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/snowImage.png"))));
+                        break;
+                    case "осадки":
+                    case "дождь":
+                        mainPane.setStyle("-fx-background-image: url('" + this.getClass().getResource("/rainBackground.jpg") + "')");
+                        weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/rainImage.png"))));
+                        break;
+                    case "морось":
+                        mainPane.setStyle("-fx-background-image: url('" + this.getClass().getResource("/drizzleBackground.jpg") + "')");
+                        weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/cloudImage.png"))));
+                        break;
+                    case "дымка":
+                        weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/cloudImage.png"))));
+                        mainPane.setStyle("-fx-background-image: url('" + this.getClass().getResource("/hazeBackground.jpg") + "')");
+                        break;
+                }
+            }
+        }
+    }
+
+    public void setWeatherImages(Weather weather, int index){
+        String dayDescription = weather.getDay(index).getDescription();
+        ImageView weatherImage = (ImageView) fxmlLoader.getNamespace().get("weatherImage" + index);
+        switch (dayDescription){
+            case "снег":
+                weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/snowImage.png"))));
+                break;
+            case "осадки":
+                weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/precipitationImage.png"))));
+                break;
+            case "дождь":
+                weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/rainImage.png"))));
+                break;
+            case "облачно":
+                weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/cloudImage.png"))));
+                break;
+            case "ясно":
+                weatherImage.setImage(new Image(String.valueOf(this.getClass().getResource("/sunImage.png"))));
+                break;
+        }
     }
 }

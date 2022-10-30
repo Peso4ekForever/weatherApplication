@@ -27,8 +27,8 @@
                            <children>
                               <HBox alignment="CENTER" prefHeight="120.0" prefWidth="350.0" spacing="70.0">
                                  <children>
-                                    <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label fx:id="description0" alignment="CENTER" contentDisplay="CENTER" prefHeight="120.0" prefWidth="250.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Label" textFill="WHITE" wrapText="true">
+                                    <ImageView fx:id="weatherImage0" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="description0" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="120.0" prefWidth="250.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="Label" textFill="WHITE" wrapText="true">
                                        <font>
                                           <Font size="24.0" />
                                        </font></Label>
@@ -86,7 +86,7 @@
                   <VBox fx:id="vBoxtomorow" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="weatherImage1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="temperature1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
@@ -131,7 +131,7 @@
                   <VBox fx:id="vBoxtomorow1" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="weatherImage2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="temperature2" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
@@ -176,7 +176,7 @@
                   <VBox fx:id="vBoxtomorow2" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="weatherImage3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="temperature3" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
@@ -221,7 +221,7 @@
                   <VBox fx:id="vBoxtomorow3" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="weatherImage4" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="temperature4" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
@@ -266,7 +266,7 @@
                   <VBox fx:id="vBoxtomorow4" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="weatherImage5" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="temperature5" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
@@ -311,7 +311,7 @@
                   <VBox fx:id="vBoxtomorow5" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="weatherImage6" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="temperature6" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
@@ -356,7 +356,7 @@
                   <VBox fx:id="vBoxtomorow6" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="weatherImage7" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="temperature7" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
@@ -401,7 +401,7 @@
                   <VBox fx:id="vBoxtomorow7" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="weatherImage8" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="temperature8" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
@@ -446,7 +446,7 @@
                   <VBox fx:id="vBoxtomorow8" alignment="CENTER" prefHeight="300.0" prefWidth="120.0" spacing="10.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 5px;">
                      <children>
                         <Label fx:id="date9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-date" stylesheets="@resources/style.css" text="Дата" textAlignment="CENTER" textFill="WHITE" />
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="weatherImage9" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="temperature9" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" styleClass="font-days-tempDescription" stylesheets="@resources/style.css" text="temp" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
